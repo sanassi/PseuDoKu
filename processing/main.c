@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
 		c = &digits[i];
                 int e = asprintf(&path, "digits/%i.txt", c -> id);
                 FILE *fp = fopen(path, "r");
-		if (digits[i].id < 81)
+		if (fp && digits[i].id < 81)
                 	gridArr[digits[i].id] = fgetc(fp) - '0';
 	}
 
@@ -195,7 +195,7 @@ int main(int argc, char *argv[])
 		if (gridArr[i] == -1)
 			printf(".");
 		else
-			printf("|%i|", gridArr[i]);
+			printf("%i", gridArr[i]);
 
 		if ((i + 1) % 3 == 0)
 			printf(" ");
